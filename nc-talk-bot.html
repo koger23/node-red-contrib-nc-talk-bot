@@ -1,0 +1,75 @@
+<script type="text/javascript">
+    RED.nodes.registerType('nc-talk-bot-credentials', {
+        category: 'config',
+        defaults: {
+            cname: {value: '', required: false},
+            address: {value: 'https://your.server.com', required: true},
+            insecure: {value: '', required: false}
+        },
+		credentials: {
+        	url: {type:'text'},
+			secret: {type:'password'}
+     	},
+        label: function() {
+            if (this.cname.length) {
+                return this.cname + ' (' + this.address + ')'
+			}
+            return this.address
+        }
+    })
+</script>
+
+<script type="text/x-red" data-template-name="nc-talk-bot-credentials">
+    <div class="form-row">
+        <label for="node-config-input-cname"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-cname">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-address"><i class="fa fa-server"></i> Server</label>
+        <input type="text" id="node-config-input-address">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-insecure"><i class="fa fa-server"></i> Security</label>
+        <input type="checkbox" value="1" id="node-config-input-insecure"
+        	style="display: inline-block; width: auto; vertical-align: top">
+        	<span style="width: 70%">Accept self signed certificates</span>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-user"><i class="fa fa-server"></i> Username</label>
+        <input type="text" id="node-config-input-user">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-pass"><i class="fa fa-key"></i> Password</label>
+        <input type="password" id="node-config-input-pass">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('nc-talk-bot', {
+        category: 'nextcloud',
+        color: '#a6bbcf',
+        paletteLabel: 'Talk Bot',
+        defaults: {
+            ncUrl: { value: '', required: true },
+            secret: { value: '', required: true },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'nextcloud.png',
+        label: function () {
+            return this.ncUrl || 'Nextcloud Talk Bot';
+        },
+    });
+</script>
+
+<script type="text/x-red" data-template-name="nc-talk-bot">
+    <div class="form-row">
+        <label for="node-input-ncUrl"><i class="fa fa-link"></i> Nextcloud URL</label>
+        <input type="text" id="node-input-ncUrl" placeholder="https://yout-nextcloud-url.org">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-secret"><i class="fa fa-key"></i> Secret</label>
+        <input type="password" id="node-input-secret">
+    </div>
+</script>
