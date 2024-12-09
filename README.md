@@ -2,7 +2,7 @@
 This is a Nextcloud Talk bot package for communicating with chat rooms.
 
 ## Preparation - Creating a bot
-You can skip this if you already have a bot, just jump to the "Installation" part.
+You can skip this if you already have a bot, just jump to the [Installation part](/#installation).
 
 Using Docker: if you run Nextcloud in Docker container, connect to the container with the following:
 ```
