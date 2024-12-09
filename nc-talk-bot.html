@@ -50,6 +50,7 @@
         color: '#0082C9',
         paletteLabel: 'Talk Bot',
         defaults: {
+            nodeName: { value: '', required: false },
             ncUrl: { value: '', required: true },
             secret: { value: '', required: true },
         },
@@ -57,17 +58,20 @@
         outputs: 1,
         icon: 'nextcloud.png',
         label: function () {
-            return this.ncUrl || 'Nextcloud Talk Bot';
+            return this.nodeName || 'Nextcloud Talk Bot Message';
         },
     });
 </script>
 
 <script type="text/x-red" data-template-name="nc-talk-bot">
     <div class="form-row">
+        <label for="node-input-nodeName"><i class="fa fa-link"></i>Name</label>
+        <input type="text" id="node-input-nodeName" placeholder="">
+    </div>
+    <div class="form-row">
         <label for="node-input-ncUrl"><i class="fa fa-link"></i> Nextcloud URL</label>
         <input type="text" id="node-input-ncUrl" placeholder="https://yout-nextcloud-url.org">
     </div>
-
     <div class="form-row">
         <label for="node-input-secret"><i class="fa fa-key"></i> Secret</label>
         <input type="password" id="node-input-secret">
