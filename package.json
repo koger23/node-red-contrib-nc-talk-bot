@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-nc-talk-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nextcloud Talk Bot for Node-RED",
   "main": "nc-talk-bot.js",
   "node-red": {
