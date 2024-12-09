@@ -5,35 +5,52 @@ This is a Nextcloud Talk bot package for communicating with chat rooms.
 You can skip this if you already have a bot, just jump to the "Installation" part.
 
 Using Docker: if you run Nextcloud in Docker container, connect to the container with the following:
-`docker exec -it -u 33 6296172064fb /bin/bash`
-Parameter -u 33 is needed to get proper permissions based on owner ID of config.php.
+```
+docker exec -it -u 33 6296172064fb /bin/bash
+```
+
+Parameter `-u 33` is needed to get proper permissions based on owner ID of config.php.
 
 ### Creating a bot in Nextcloud
 ⚠️ Depending on your installation use just `occ` or `/var/www/html/occ` in CLI:
-`/var/www/html/occ talk:bot:install "{bot_name}" "{64-128 char long secret}" "{webhook url}" "{bot_name}"`
+```
+/var/www/html/occ talk:bot:install "{bot_name}" "{64-128 char long secret}" "{webhook url}" "{bot_name}"
+```
 
-Check you bot is in the list:
-`/var/www/html/occ talk:bot:list`
+1. Check you bot is in the list:
+```
+/var/www/html/occ talk:bot:list
+```
 
-Now you need your user ID:
-`/var/www/html/occ user:list`
+2. Get your user ID:
+```
+/var/www/html/occ user:list
+```
 
-Create a room:
-`/var/www/html/occ talk:room:create --user {user_id} --owner {user_id} "{chat_room_name}"`
+3. Create a room:
+```
+/var/www/html/occ talk:room:create --user {user_id} --owner {user_id} "{chat_room_name}"
+```
 This will return the room token, save it.
 
-Add bot to the room:
-`/var/www/html/occ talk:bot:setup 1 {room_token}`
+4. Add bot to the room:
+```
+/var/www/html/occ talk:bot:setup 1 {room_token}
+```
 
 Now you and your bot are in a room. You can add anyone else living person if you want in the app or in CLI.
 You can find more detailed information in [the Nextcloud Talk occ commands documentation](https://nextcloud-talk.readthedocs.io/en/latest/occ/).
 
 ## Installation
-Run the following to download it from npm repository:
-`npm install node-red-contrib-nc-talk-bot`
+Run the following to install from npm repository:
+```
+npm install node-red-contrib-nc-talk-bot
+```
 
 If you install it locally after a git clone or downloaded as ZIP:
-`npm install /path/to_your_package_folder`
+```
+npm install /path/to_your_package_folder
+```
 
 ## First use
 After the installation you should find a new node under category "nextcloud" in your Node-RED.
