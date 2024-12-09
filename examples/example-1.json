@@ -1,0 +1,66 @@
+[
+    {
+        "id": "fe661b73ed854b60",
+        "type": "tab",
+        "label": "Simple example 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "164a7d9c75fa7623",
+        "type": "nc-talk-bot",
+        "z": "fe661b73ed854b60",
+        "nodeName": "test",
+        "ncUrl": "https://nextcloud.instance.org",
+        "secret": "12TXqes...YKBWF12E",
+        "x": 490,
+        "y": 280,
+        "wires": [
+            [
+                "6e5c41f72cb0da52"
+            ]
+        ]
+    },
+    {
+        "id": "281b2db8437d783e",
+        "type": "inject",
+        "z": "fe661b73ed854b60",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"message\":\"Hello from Node-RED!\",\"token\":\"t3stig3k\"}",
+        "payloadType": "json",
+        "x": 330,
+        "y": 280,
+        "wires": [
+            [
+                "164a7d9c75fa7623"
+            ]
+        ]
+    },
+    {
+        "id": "6e5c41f72cb0da52",
+        "type": "debug",
+        "z": "fe661b73ed854b60",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 280,
+        "wires": []
+    }
+]
