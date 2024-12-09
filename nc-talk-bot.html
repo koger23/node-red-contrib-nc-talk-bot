@@ -73,3 +73,67 @@
         <input type="password" id="node-input-secret">
     </div>
 </script>
+
+<script type="text/x-red" data-help-name="nc-talk-bot">
+	<p>Sends message to a given room by a Nextcloud Talk Bot.</p>
+
+	<h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">object</span>
+        </dt>
+        <dd> Incoming message and room token will trigger the action to send message.
+            The JSON must contain the following properties:</dd>
+        <dt>payload.message
+            <span class="property-type">string</span></dt>
+        <dd>Message is the text to send to the room.</dd>
+        <dt>payload.token
+            <span class="property-type">string</span>
+        </dt>
+        <dd>Room token is belongs the the chat room where the message should be sent to.</dd>
+
+        <h3>Sample input JSON in payload</h3>
+        <p>
+            <code>
+                {
+                    "message": "Your Message Here",
+                    "token": "your_room_token"
+                }
+            </code>
+        </p>
+    </dl>
+
+	<h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">object</span>
+        </dt>
+        <dd>Outputs the ocs metadata with status.</dd>
+        <dt class="optional">payload.ocs.meta <span class="property-type">object</span></dt>
+        <dd>Response details as follows.</dd>
+        <dt class="optional">payload.ocs.meta.status <span class="property-type">string</span></dt>
+        <dd>The status message of the response.</dd>
+        <dt class="optional">payload.ocs.meta.statuscode <span class="property-type">integer</span></dt>
+        <dd>The statuscode of the response.</dd>
+        <dt class="optional">payload.ocs.meta.message <span class="property-type">integer</span></dt>
+        <dd>The message returned with the response.</dd>
+        <dt class="optional">payload.ocs.data <span class="property-type">array</span></dt>
+        <dd>Empty array.</dd>
+
+        <h3>Sample output JSON from payload</h3>
+        <p>
+            <code>
+                {
+                    "ocs": {
+                        "meta":{
+                            "status":"ok",
+                            "statuscode":201,
+                            "message":"OK"
+                        },
+                        "data":[]
+                    }
+                }
+            </code>
+        </p>
+    </dl>
+</script>
